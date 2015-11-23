@@ -1,7 +1,7 @@
 This is a small set of scripts that does two things:
 
  - Route Perforce triggers to appropriate scripts (to make it easier to add new Perforce triggers with just a `p4 triggers` update and a new script in Perforce.)
- -- We currently use a version of Perforce that does not support %//depot/path/to/script% syntax in p4 triggers, so that makes this more important.
+  - We currently use a version of Perforce that does not support the `%//depot/path/to/script%` syntax in p4 triggers, so that makes this more important.
  - Verifies Unity meta-file consistency for configured projects.
 
 The Unity meta-file verification has three checks:
