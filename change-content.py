@@ -1,8 +1,13 @@
 import fnmatch
 import os
-import site
 import sys
 import timeit
+
+# This script requires the `yaml' Python package.
+import yaml
+
+# Our own Perforce wrapper.
+import p4
 
 ## You can include these words in your checkin description, and
 ## you'll enable that mode.
@@ -31,15 +36,6 @@ class Timer(object):
         type(self).recursion_depth  -= 1
         if type(self).show_stats:
             print '{}{} finished in {}'.format('  ' * type(self).recursion_depth, self._label, self._duration_str(stop))
-
-P4DISPATCH_DIR = os.path.realpath(os.path.abspath(os.path.dirname(__file__)))
-if P4DISPATCH_DIR not in sys.path:
-    sys.path.insert(0, P4DISPATCH_DIR)
-site.addsitedir(os.path.join(P4DISPATCH_DIR, '..', 'thirdparty', 'python-packages'))
-
-import yaml
-
-import p4
 
 def exists_after_change(files, cl, file):
     if file in files:
