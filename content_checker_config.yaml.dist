@@ -1,0 +1,9 @@
+my_project:
+    paths:
+        - //depot/proj01/*
+    check: unity_meta_check
+my_other_project:
+    paths:
+        - //depot/proj02/dev/*
+        - //depot/proj02/stable/*
+    check: unity_meta_check
