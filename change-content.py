@@ -64,6 +64,8 @@ def verify_metas_added(cl, change, matched_files):
         if asset.endswith('.meta'):
             continue
 
+        # TODO(jorgenpt): Check that no .meta files are added for resources that do not exist.
+
         if os.path.basename(asset).startswith('.'):
             continue
 
@@ -128,6 +130,7 @@ def main(changelist):
     change = p4.describe(changelist)
     if DEBUG_CHECKS_KEYWORD in change['desc']:
         p4.DEBUG = True
+        # Re-run this to get the debug output.
         change = p4.describe(changelist)
 
     if SKIP_CHECKS_KEYWORD in change['desc']:
